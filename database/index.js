@@ -13,6 +13,14 @@ const productSchema =  new mongoose.Schema({
 });
 const Product = mongoose.model('Product', productSchema);
 
+var readAllProducts = function(callback) {
+  Product.find(function (err, products) {
+    if (err) {
+      return console.error(err);
+    }
+    callback(products);
+  })
+}
 var createProduct = function(name, imageUrl) {
   var product = new Product({
     name: name,
@@ -24,12 +32,12 @@ var createProduct = function(name, imageUrl) {
     }
   });
 }
-
 var drop = function(callback) {
   return database.dropDatabase(callback);
 }
 
 module.exports = {
+  readAllProducts,
   createProduct,
   drop
 }
