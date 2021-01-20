@@ -4,6 +4,8 @@ const database = require('../database/index.js');
 const app = express();
 const port = 3003;
 
+app.use(express.static('../public'));
+
 app.get('/api/products', (req, res) => {
   database.readAllProducts((results) => {
     res.send(results);
