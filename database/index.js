@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const accessors = require('./accessors');
 
 mongoose.connect('mongodb://localhost/reisimilarProducts', {useNewUrlParser: true, useUnifiedTopology: true});
 const database = mongoose.connection;
@@ -7,34 +8,9 @@ database.once('open', function() {
   console.log('connected to database');
 });
 
-const productSchema =  new mongoose.Schema({
-  name: String,
-  imageUrl: String
-});
-const Product = mongoose.model('Product', productSchema);
-
-var readAllProducts = function(callback) {
-  Product.find(function (err, products) {
-    if (err) {
-      return console.error(err);
-    }
-    callback(products);
-  })
-}
-var createProduct = function(name, imageUrl) {
-  var product = new Product({
-    name: name,
-    imageUrl: imageUrl
-  });
-  product.save((err, product) => {
-    if (err) {
-      return console.error(err);
-    }
-  });
-}
-var drop = function(callback) {
-  return database.dropDatabase(callback);
-}
+var readAllProducts = accessors.readAllProducts;
+var createProduct = accessors.createProduct;
+var drop = (callback) => {accessors.drop(database, callback);};
 
 module.exports = {
   readAllProducts,
