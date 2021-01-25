@@ -2,13 +2,14 @@ const mongoose = require('mongoose');
 
 const productSchema =  new mongoose.Schema({
   name: String,
-  imageUrl: String
+  imageUrl: String,
+  price: Number,
+  description: String
 });
 
 const Product = mongoose.model('Product', productSchema);
 
 var readAllProducts = function(callback) {
-  console.log('got to readAll accessor');
   Product.find(function (err, products) {
     if (err) {
       return console.error(err);
@@ -16,10 +17,12 @@ var readAllProducts = function(callback) {
     callback(products);
   })
 }
-var createProduct = function(name, imageUrl) {
+var createProduct = function(name, imageUrl, price, description) {
   var product = new Product({
     name: name,
-    imageUrl: imageUrl
+    imageUrl: imageUrl,
+    price: price,
+    description: description
   });
   product.save((err, product) => {
     if (err) {
