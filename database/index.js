@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const accessors = require('./accessors');
 
-mongoose.connect('mongodb://localhost/reisimilarProducts', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://18.221.45.74/reisimilarProducts', {useNewUrlParser: true, useUnifiedTopology: true});
 const database = mongoose.connection;
 database.on('error', console.error.bind(console, 'connection error:'));
 database.once('open', function() {
