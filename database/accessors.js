@@ -4,7 +4,7 @@ const productSchema =  new mongoose.Schema({
   name: String,
   imageUrl: String,
   price: Number,
-  description: String
+  description: String,
 });
 
 const Product = mongoose.model('Product', productSchema);
@@ -39,3 +39,16 @@ module.exports = {
   createProduct,
   drop
 }
+
+// name: String,
+// imageUrl: String,
+// price: Number,
+// description: String,
+
+// -----------------------------------------------
+// |  id                integer      | INTEGER AUTO-INCRIMENT PK
+// |  name              String       | VARCHAR(30)
+// |  imageUrl          String       | VARCHAR(30)
+// |  price             integer      | INTEGER
+// |  description       String       | VARCHAR(250)
+// |  productCategory                           |

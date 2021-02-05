@@ -27,14 +27,14 @@ class App extends React.Component {
       return <SimilarProduct product={product}/>
     });
     return(
-      <div class="similar-product-container">
-        {similarProducts}
+      <div>
+        <h1>Similar Products</h1>
+        <div className="similar-product-container">
+          {similarProducts}
+        </div>
       </div>
-
     );
   }
 }
 
 export default App;
-
-// test

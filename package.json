@@ -16,7 +16,10 @@
     "express": "^4.17.1",
     "faker": "^5.1.0",
     "mongoose": "^5.11.12",
+    "node-postgres": "^0.6.2",
     "nodemon": "^2.0.7",
+    "pg": "^8.5.1",
+    "postgres": "^1.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "webpack": "^5.16.0",
@@ -35,7 +38,7 @@
     "seed": "node -e \"require('./database/seeder.js').seed(4)\"",
     "build": "webpack",
     "watch": "webpack -w",
-    "start": "node ./server/index.js"
+    "start": "nodemon node ./server/index.js"
   },
   "repository": {
     "type": "git",
