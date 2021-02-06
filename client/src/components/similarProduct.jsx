@@ -9,7 +9,8 @@ class SimilarProduct extends React.Component {
 
   render() {
     return(
-      <div class="similar-product-box">
+      <div className="similar-product-box" key={this.props.product.id}>
+        {console.log(this.props.product)}
         <img src={this.props.product.imageUrl}></img>
         <h2>{this.props.product.name}</h2>
         <body>{this.props.product.description}</body>
