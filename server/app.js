@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')))
 
 
 app.get('/products',  function dbRoute(req, res)  {
-  db.getProducts(90)
+  db.getProducts(120)
   .then((result) => {
     res.status(200).send(result)
   })
