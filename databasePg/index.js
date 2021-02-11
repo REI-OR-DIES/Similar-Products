@@ -9,7 +9,7 @@ const pool = new Pool({
 
 
 const getProducts = (id) => {
-  pool.query(`SELECT * FROM sdcproducts WHERE category_id = '${id}' ORDER BY RANDOM() LIMIT 4`)
+  return pool.query(`SELECT * FROM sdcproducts WHERE category_id = '${id}' LIMIT 4`)
   .then((result) => {return result.rows})
   .catch((err) => {console.log(err)})
 }
