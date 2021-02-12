@@ -1,7 +1,7 @@
 const { Pool } = require('pg')
 const pool = new Pool({
   user: 'postgres',
-  host: 'ec2-3-19-70-249.us-east-2.compute.amazonaws.com',
+  host: 'add aws link in ec2 via vim',
   database: 'postgres',
   password: 'jeep2003',
   port: 5432,

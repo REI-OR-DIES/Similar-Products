@@ -3,3 +3,4 @@ newrelic.js
 node_modules
 product_model
 *.csv
+databasePg/index.js
