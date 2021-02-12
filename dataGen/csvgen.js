@@ -6,14 +6,14 @@ const faker = require('faker');
 const database = require('../databasePg/index');
 
 // Populates products.csv in current directory
-const write = async (fileName, fields, data) => {
+const write = async (fileName, fields, data, qty) => {
 
     // output file in the same folder
     const filename = path.join(__dirname, `${fileName}`);
     let rows;
     // If file doesn't exist, we will create new file and add rows with headers.
     if (!fs.existsSync(filename)) {
-        rows = await json2csv(data, { header: true });
+        rows = await json2csv(data, fields, { header: true });
     } else {
         // Rows without headers.
         rows = await json2csv(data, { header: false });
@@ -28,7 +28,7 @@ const write = async (fileName, fields, data) => {
   }
 
 
-  var recordsToGenerate = 10;
+  var recordsToGenerate = 1000000;
   var prices = [59.99, 69.99, 79.99, 89.99, 129.99]
 
   while (recordsToGenerate > 0) {
@@ -36,7 +36,7 @@ const write = async (fileName, fields, data) => {
     // generates table columns
     var fields = ['name', 'imageUrl', 'price', 'description', 'category_id'];
 
-    write('te.csv', fields, data);
+    write('products10.csv', fields, data, 10);
 
     // Random number generator for product category.
     function getRandomInt(min, max) {
